@@ -1,0 +1,1 @@
+module.exports.getTime = () => Date.now() / 1000 >> 0;

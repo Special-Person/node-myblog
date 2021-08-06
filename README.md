@@ -1,2 +1,9 @@
 # node-myblog
-blog后端
+
+blog 后端
+
+## Project setup
+
+```
+node ./index.js
+```
