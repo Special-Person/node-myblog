@@ -23,3 +23,20 @@ module.exports.queryBlogPageTotalCount = (success) => {
         success
     )
 }
+
+module.exports.queryBlog = (id, success) => {
+    MyConnect(
+        "select * from blog where id = ?",
+        [id],
+        success
+    )
+}
+
+
+module.exports.queryAllBlog = (success) => {
+    MyConnect(
+        "select * from blog order by ctime desc",
+        [],
+        success
+    )
+}

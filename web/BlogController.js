@@ -91,7 +91,6 @@ function queryBlogByPage(request, response) {
         response.write(writeResult("success", "查询成功", result));
         response.end();
     })
-
 }
 
 path.set("/queryBlogPageTotalCount", queryBlogPageTotalCount);
@@ -99,6 +98,27 @@ function queryBlogPageTotalCount(request, response) {
     BlogDao.queryBlogPageTotalCount(result => {
         response.writeHead(200);
         response.write(writeResult("success", "查询成功", result[0].count));
+        response.end();
+    })
+}
+
+
+path.set("/queryBlog", queryBlog);
+function queryBlog(request, response) {
+    let params = url.parse(request.url, true).query;
+
+    BlogDao.queryBlog(params.mgsId, result => {
+        response.writeHead(200);
+        response.write(writeResult("success", "查询成功", result[0]));
+        response.end();
+    })
+}
+
+path.set("/queryAllBlog", queryAllBlog)
+function queryAllBlog(request, response) {
+    BlogDao.queryAllBlog(res => {
+        response.writeHead(200);
+        response.write(writeResult("success", "查询成功", res));
         response.end();
     })
 }
