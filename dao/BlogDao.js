@@ -40,3 +40,20 @@ module.exports.queryAllBlog = (success) => {
         success
     )
 }
+
+module.exports.addViews = (id, success) => {
+    MyConnect(
+        "update blog set views = views + 1 where id = ?",
+        [id],
+        success
+    )
+}
+
+
+module.exports.queryHotBlog = (success) => {
+    MyConnect(
+        "select * from blog order by views desc limit 0, 10",
+        [],
+        success
+    )
+}

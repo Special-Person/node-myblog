@@ -49,8 +49,6 @@ function queryTagIdByBlog(options, request, response) {
             response.write(writeResult("success", "查询成功", res));
             response.end();
         })
-
-
     })
 }
 

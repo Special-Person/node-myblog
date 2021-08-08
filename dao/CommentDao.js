@@ -24,3 +24,11 @@ module.exports.queryCommentsCountByBlodId = (blogId, success) => {
         success
     )
 }
+
+module.exports.queryNewComments = success => {
+    MyConnect(
+        "select * from comments order by id desc limit 0, 10",
+        [],
+        success
+    )
+}

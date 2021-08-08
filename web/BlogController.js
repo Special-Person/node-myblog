@@ -123,4 +123,33 @@ function queryAllBlog(request, response) {
     })
 }
 
+path.set("/addViews", addViews)
+function addViews(request, response) {
+    let params = url.parse(request.url, true).query;
+    BlogDao.addViews(parseInt(params.id), res => {
+        response.writeHead(200);
+        response.write(writeResult("success", "添加浏览量成功", null));
+        response.end();
+    })
+}
+
+
+path.set("/queryHotBlog", queryHotBlog)
+function queryHotBlog(request, response) {
+    BlogDao.queryHotBlog(res => {
+        res = res.map(item => {
+            return {
+                id: item.id,
+                link: item.id,
+                title: item.title
+            }
+        })
+        response.writeHead(200);
+        response.write(writeResult("success", "添加浏览量成功", res));
+        response.end();
+    })
+}
+
+
+
 module.exports.path = path;

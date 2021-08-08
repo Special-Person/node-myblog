@@ -30,6 +30,7 @@ function addComment(request, response) {
 
 path.set("/queryRandomCode", queryRandomCode);
 function queryRandomCode(request, response) {
+    // 验证码生成
     let img = captcha.create({ fontSize: 40, width: 100, height: 34 })
 
     response.writeHead(200);
@@ -59,5 +60,23 @@ function queryCommentsCountByBlodId(request, response) {
 
 }
 
+path.set("/queryNewComments", queryNewComments)
+function queryNewComments(request, response) {
+    CommentDao.queryNewComments(res => {
+        res = res.map(item => {
+            return {
+                id: item.id,
+                blog_id: item.blog_id,
+                comments: item.comments,
+                username: item.username,
+                ctime: item.ctime
+            }
+        })
+
+        response.writeHead(200);
+        response.write(writeResult("success", "查询成功", res));
+        response.end();
+    })
+}
 
 module.exports.path = path;

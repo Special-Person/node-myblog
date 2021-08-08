@@ -23,7 +23,11 @@ let getArr = [
     "/queryCommentsCountByBlodId",
     "/queryAllBlog",
     "/queryAllTag",
-    "/queryTagByTags"
+    "/queryTagByTags",
+    "/addViews", // 添加浏览次数
+    "/queryHotBlog",
+    "/queryNewComments",
+    "/queryKeyWord"
 ]
 getArr.forEach(item => app.get(item, loader.get(item)))
 
