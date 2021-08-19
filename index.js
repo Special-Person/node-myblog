@@ -1,6 +1,6 @@
 const Express = require("express");
-const globalConfig = require("./config")
-const loader = require("./loader")
+const globalConfig = require("./config");
+const loader = require("./loader");
 
 const app = new Express();
 
@@ -9,8 +9,8 @@ let postArr = [
     "/editEveryDay",
     "/editBlog",
     "/addComment"
-]
-postArr.forEach(item => app.post(item, loader.get(item)))
+];
+postArr.forEach(item => app.post(item, loader.get(item)));
 
 // 所有的get请求
 let getArr = [
@@ -28,7 +28,7 @@ let getArr = [
     "/queryHotBlog",
     "/queryNewComments",
     "/queryKeyWord"
-]
-getArr.forEach(item => app.get(item, loader.get(item)))
+];
+getArr.forEach(item => app.get(item, loader.get(item)));
 
-app.listen(globalConfig.port)
+app.listen(globalConfig.port);

@@ -6,7 +6,7 @@ module.exports.insertEveryDay = (content, ctime, success) => {
         "insert into every_day (`content`, `ctime`) values (?, ?)",
         [content, ctime],
         success
-    )
+    );
 };
 
 module.exports.queryEveryDay = success => {
@@ -14,5 +14,5 @@ module.exports.queryEveryDay = success => {
         "select * from every_day order by id desc limit 1",
         [],
         success
-    )
+    );
 };

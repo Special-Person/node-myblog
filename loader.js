@@ -1,5 +1,5 @@
 const fs = require("fs");
-const globalConfig = require("./config.js")
+const globalConfig = require("./config.js");
 
 let controllerSet = [];
 let pathMap = new Map();
@@ -14,18 +14,18 @@ for (let i = 0; i < files.length; i++) {
 
     if (temp.path) {
         for (const [key, value] of temp.path) {
-            // 排除重复的url 
+            // 排除重复的url
             if (pathMap.get(key) === undefined) {
-                pathMap.set(key, value)
+                pathMap.set(key, value);
             } else {
-                throw new Error("url异常")
+                throw new Error("url异常");
             }
         }
 
         // temp是controller里的path
-        controllerSet.push(temp)
+        controllerSet.push(temp);
     }
 
 }
 
-module.exports = pathMap
+module.exports = pathMap;

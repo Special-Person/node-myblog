@@ -1,13 +1,13 @@
 const mysql = require("mysql");
 
-// 创建连接 
+// 创建连接
 const createConnection = () => mysql.createConnection({
-    host: "121.41.11.84",
+    host: "localhost",
     port: "3306",
     user: "root",
     password: "qwer1234",
     database: "myBlog"
-})
+});
 
 const sendConnect = (Sql, params, success) => {
     let connection = createConnection();
@@ -19,6 +19,6 @@ const sendConnect = (Sql, params, success) => {
     });
 
     connection.end();
-}
+};
 
-module.exports = sendConnect
+module.exports = sendConnect;
